@@ -1,10 +1,12 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
+import { Ticket } from '../models/ticket';
 
 declare global {
   var signin: () => string[];
   var generateId: () => string;
+  var createTicket: () => Promise<any>;
 }
 
 jest.mock('../nats-wrapper');
@@ -56,4 +58,15 @@ global.signin = () => {
 
 global.generateId = () => {
   return new mongoose.Types.ObjectId().toHexString();
+}
+
+global.createTicket = async () => {
+  const ticket = Ticket.build({
+    title: 'concert',
+    price: 20
+  });
+
+  await ticket.save();
+
+  return ticket;
 }
