@@ -2,7 +2,7 @@ import request from 'supertest';
 import { app } from '../../app';
 import { Ticket } from '../../models/ticket';
 
-it('fetahces the order', async () => {
+it('fetches the order', async () => {
   // Create a ticket
   const ticket = await global.createTicket();
 
