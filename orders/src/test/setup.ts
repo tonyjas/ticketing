@@ -62,6 +62,7 @@ global.generateId = () => {
 
 global.createTicket = async () => {
   const ticket = Ticket.build({
+    id: global.generateId(),
     title: 'concert',
     price: 20
   });

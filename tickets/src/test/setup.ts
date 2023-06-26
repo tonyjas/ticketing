@@ -20,7 +20,7 @@ beforeAll(async () => {
   await mongoose.connect(mongoUri, {});
 
 
-});
+}, 30000);
 
 beforeEach(async () => {
   jest.clearAllMocks();
