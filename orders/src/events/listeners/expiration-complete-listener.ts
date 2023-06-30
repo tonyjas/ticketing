@@ -16,7 +16,7 @@ export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent
       throw new Error('Order not found');
     }
 
-    // If order is already completed, do nothing
+    // If order status is complete, do nothing
     if (order.status === OrderStatus.Complete) {
       return msg.ack();
     }
