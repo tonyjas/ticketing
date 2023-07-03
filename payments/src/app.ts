@@ -11,7 +11,8 @@ app.set('trust proxy', true); // Trust traffic as being secure even though it is
 app.use(json());
 app.use(cookieSession({
     signed: false,
-    secure: process.env.NODE_ENV !== 'test', // Only send cookies over HTTPS if in production
+    //secure: process.env.NODE_ENV !== 'test', // Only send cookies over HTTPS if in production
+    secure: false,
     name: 'session'
 }));
 app.use(currentUser);
