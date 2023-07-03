@@ -3,12 +3,12 @@ import { requireAuth, validateRequest, NotFoundError, NotAuthorizedError } from 
 import { Order } from '../models/order';
 
 
-import { body } from 'express-validator';
+import { param } from 'express-validator';
 
 const router = express.Router();
 
 router.get('/api/orders/:orderId', requireAuth, [
-  body('orderId')
+  param('orderId')
     .not()
     .isEmpty()
     .withMessage('OrderId must be provided')
