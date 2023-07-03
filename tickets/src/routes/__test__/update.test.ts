@@ -136,7 +136,7 @@ it('rejects updates if the ticket is reserved', async () => {
       title: 'asdf',
       price: 20
     });
-  const ticket = Ticket.findById(response.body.id);
+  const ticket = await Ticket.findById(response.body.id);
   ticket!.set({ orderId: global.generateId() });
   await ticket!.save();
 
